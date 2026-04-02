@@ -28,7 +28,7 @@ app.get("/login", (req, res) => {
 
 app.get("/dashboard", (req, res) => {
 
-  const data = fs.readFileSync("data.json", "utf-8");
+  const data = fs.readFileSync(path.join(__dirname, "data.json"), "utf-8");
 
   const parsedData = JSON.parse(data);
 
