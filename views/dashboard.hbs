@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Dashboard</h1>
+
+  <h2>Agregar nueva tarjeta</h2>
+  <form method="POST" action="/nueva-tarjeta">
+    <input type="text" name="title" placeholder="Nueva tarea" required>
+    <button type="submit">Agregar</button>
+  </form>
+
+  {{#each boards}}
+    <h2>{{this.name}}</h2>
+
+    <div class="board">
+      {{#each this.lists}}
+        <div class="list">
+          <h3>{{this.name}}</h3>
+
+          {{#each this.cards}}
+            <div class="card">
+              {{this.title}}
+            </div>
+          {{/each}}
+
+        </div>
+      {{/each}}
+    </div>
+  {{/each}}
+</div>
