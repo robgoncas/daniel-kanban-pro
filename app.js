@@ -39,13 +39,13 @@ app.post("/nueva-tarjeta", (req, res) => {
 
   const { title } = req.body;
 
-  const data = fs.readFileSync("data.json", "utf-8");
+  const data = fs.readFileSync(path.join(__dirname, "data.json"), "utf-8");
   const parsedData = JSON.parse(data);
 
   parsedData.boards[0].lists[0].cards.push({ title });
 
   fs.writeFileSync(
-    "data.json",
+    path.join(__dirname, "data.json"),
     JSON.stringify(parsedData, null, 2)
   );
   res.redirect("/dashboard");
